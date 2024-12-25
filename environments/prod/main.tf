@@ -1,12 +1,5 @@
 terraform {
   required_version = ">= 1.0"
-  backend "s3" {
-    bucket         = "saas-infra-terraform-state-prod"
-    key            = "prod/terraform.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "terraform-state-lock"
-    encrypt        = true
-  }
 }
 
 module "networking" {
@@ -28,4 +21,4 @@ module "eks_cluster" {
   desired_size      = var.desired_size
   max_size          = var.max_size
   min_size          = var.min_size
-} 
+}
